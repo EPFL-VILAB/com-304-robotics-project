@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+  <model name="empty_room">
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+            <mesh>
+              <uri>model://empty_room/meshes/empty_room.dae</uri>
+            </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <static>true</static>
+  </model>
+</sdf>
