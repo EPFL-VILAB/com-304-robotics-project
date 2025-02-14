@@ -29,7 +29,12 @@ To set up the turtlebot4, we use the [setup guide provided in it's documentation
 
 ### 1. Local PC setup ([link to reference](https://turtlebot.github.io/turtlebot4-user-manual/setup/basic.html#user-pc))
 
-To interface with the turtlebot4, we need a PC running ROS Humble. ROS is short for [Robot Operating System](https://www.ros.org/), and is a set of software libraries and tools that simplifies many of the key aspects of building robot applications, such as multiprocessing, message passing, package management and more. Many packages and drivers for existing robots (such as the turtlebot4) rely on ROS, and so can be easily used as a part of a larger ROS application. Each version of ROS corresponds to a major release of Ubuntu, and can only be used with that version. For our purposes, the turtlebot4's existing software kit was developed for [ROS Humble](https://docs.ros.org/en/humble/index.html), which runs on Ubuntu 22.04. You should have already set up either a dual boot running Ubuntu 22.04, or a VMWare image with Ubuntu 22.04.
+To interface with the turtlebot4, we need a PC running ROS Humble. ROS is short for [Robot Operating System](https://www.ros.org/), and is a set of software libraries and tools that simplifies many of the key aspects of building robot applications, such as multiprocessing, message passing, package management and more. Many packages and drivers for existing robots (such as the turtlebot4) rely on ROS, and so can be easily used as a part of a larger ROS application. Each version of ROS corresponds to a major release of Ubuntu, and can only be used with that version. For our purposes, the turtlebot4's existing software kit was developed for [ROS Humble](https://docs.ros.org/en/humble/index.html), which runs on Ubuntu 22.04.
+
+If you do not currently have access to a device with Ubuntu 22.04, you have 2 options:
+
+1. (Recommended) Dual boot your current OS with Ubuntu 22.04. This is preferable as it will lead to better usage of your PC's resources and hence smoother simulation. The process of doing this is somewhat OS specific but if you're not confident and want help setting this us please let us know and we will try to help.
+2. (Less intrusive) Set up a virtual machine running Ubuntu 22.04. For this the common choices are either VirtualBox or VMWare. A tutorial going though the installation process can be [found here](https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview) but feel free to use other alternatives if they work better or are easier for you.
 
 To work with the turtlebot4, our Ubuntu 22.04 instance will need both ROS Humble and the turtlebot4 package installed:
 
