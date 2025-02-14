@@ -5,9 +5,11 @@ In this homework task, you will learn the fundamentals of ROS2 with a concrete i
 - The first part is a theoretical section where you will read and learn basic principles of ROS2 by yourself, and implement a basic message passing system.
 - The second part consists of implementing what you learned to programmatically control a turtlebot4 lite in the gazebo simulator. This will also involve learning more intermediate ROS2 concepts which will be needed to complete your project later into the semester.
 
-This homework is not a jupyter notebook that you can just skim through and run the provided code, but instead a set of tasks that requires you to thoroughly read documentation and code your own solutions from scratch. At the end, you should be able to launch a simulated robot in a world you created, and control it according to actions that you send it.
+This homework is not just coding based, but instead a set of tasks that requires you to thoroughly read documentation and formulate your understanding of a new software stack from scratch. At the end, you should be able to launch a simulated robot in a world you created, and control it according to actions that you send it.
 
 As you know, this is a project-based course so feel free to read, test, and implement what you read to gain more confidence. The concepts you learn in this tutorial are fundamental to working with robots using ROS2 and you will use them a lot during the project, so it's worth putting in some time now to learn them well.
+
+This homework is worth 10% of your overall grade and is split into 100 points in total. Note that the number of points does not necessarily correspond to the length of the description required, more the difficulty of the question. Your answer can be as brief or as long as needed to answer the question, but try to keep your answers brief overall.
 
 The main references for this homework task are:
 
@@ -18,18 +20,19 @@ The main references for this homework task are:
 
 - [CS-304 ROS Homework - Action Server and Client](#cs-304-ros-homework---action-server-and-client)
   - [Table of Contents](#table-of-contents)
-  - [Part 1 - Theory](#part-1---theory)
+  - [Part 1 - Theory (40 points)](#part-1---theory-40-points)
     - [ROS2 in the CLI](#ros2-in-the-cli)
     - [ROS2 with python](#ros2-with-python)
-  - [Part 2 - Action Client/Server](#part-2---action-clientserver)
+  - [Part 2 - Action Client/Server (30 points)](#part-2---action-clientserver-30-points)
     - [Robot Motion](#robot-motion)
-  - [Part 3 - Custom Simulation Worlds](#part-3---custom-simulation-worlds)
+  - [Part 3 - Custom Simulation Worlds (30 points)](#part-3---custom-simulation-worlds-30-points)
     - [Launch files](#launch-files)
     - [Creating a custom model](#creating-a-custom-model)
     - [Creating a custom world](#creating-a-custom-world)
+    - [Final submission](#final-submission)
   - [Conclusion](#conclusion)
 
-## Part 1 - Theory
+## Part 1 - Theory (40 points)
 
 ### ROS2 in the CLI
 
@@ -41,14 +44,14 @@ To begin with, the ROS system does not rely on a specific language like python o
 
 In this section of the homework, you should go through the ROS2 CLI tools tutorial (<https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools.html>), following along and ensuring you can run everything from the tutorials on your PC. Once you've done that, you should be able to answer the below questions about the basics of ROS:
 
-- What do you need to run in every new shell before you can use ROS2? Is there a way to skip having to run this in every new shell?
-- What is a node? How much should a single node generally do? How many publishers/subscribers/services/actions can one node have/offer?
-- What is a topic? How many publishers can publish to a single topic? How many subscribers can subscribe to a single topic?
-- What is a service? How can you call a service from the command line?
-- What is a ROS parameter? When might you want to use a ROS parameter over other parameter types? What could they be useful for in your project?
-- What is an action? How are they different from services?
-- How can you find all of the currently active nodes/topics/services/parameters/actions?
-- How can you view the full ROS interaction graph?
+- (2 points) What do you need to run in every new shell before you can use ROS2? Is there a way to skip having to run this in every new shell?
+- (3 points) What is a node? How much should a single node generally do? How many publishers/subscribers/services/actions can one node have/offer?
+- (2 points) What is a topic? How many publishers can publish to a single topic? How many subscribers can subscribe to a single topic?
+- (2 points) What is a service? How can you call a service from the command line?
+- (2 points) What is a ROS parameter? When might you want to use a ROS parameter over other parameter types?
+- (2 points) What is an action? How are they different from services?
+- (1 point) How can you find all of the currently active nodes/topics/services/parameters/actions?
+- (1 point) How can you view the full ROS interaction graph?
 
 ### ROS2 with python
 
@@ -58,37 +61,37 @@ For this section of the homework you'll need to read through the ROS2 client lib
 
 1. Create a local ROS2 workspace (should already be done from the tutorials). (Don't worry if you get `stderr [...] setup.py install is deprecated`, this is an issue with ROS2 not meeting current pip standards and shouldn't affect you negatively)
 
-    - When should a workspace be rebuilt?
-    - What is the `src` folder for? What should go in here?
-    - What do you need to `source` to be able to use your local workspace?
-    - How can you easily check for missing dependencies of packages in a workspace?
+    - (1 point) When should a workspace be rebuilt?
+    - (1 point) What is the `src` folder for? What should go in here?
+    - (1 point) What do you need to `source` to be able to use your local workspace?
+    - (1 point) How can you easily check for missing dependencies of packages in a workspace?
 
 2. Create a package called `pubsub_turtle` with 2 nodes: `move_controller` and `computation_controller`. Remember that our package only has to work with Python, not C++.
 
-    - How do you make sure a node is initialized in python?
-    - What do you need to change in `package.xml` for a new package?
-    - What do you need to change in `setup.py` for a new package?
+    - (1 point) How do you make sure a node is initialized in python?
+    - (1 point) What do you need to change in `package.xml` for a new package?
+    - (1 point) What do you need to change in `setup.py` for a new package?
 
 3. Modify the `computation_controller` node python code to first print a hello message to the command line, and then destroy the node.
 
-    - How do you use the ROS logger (it's generally better to use than `print()`)?
-    - Why is it good practice to destroy a node after it is finished running?
-    - What do you need to change in `package.xml` for a new node?
-    - What do you need to change in `setup.py` for a new node?
-    - What should be in `setup.cfg`?
+    - (1 point) How do you use the ROS logger (it's generally better to use than `print()`)?
+    - (2 point) Why is it good practice to destroy a node after it is finished running?
+    - (1 point) What do you need to change in `package.xml` for a new node?
+    - (1 point) What do you need to change in `setup.py` for a new node?
+    - (1 point) What should be in `setup.cfg`?
 
 4. Now modify the `computation_controller` node to instead *publish* the hello message to a topic `/turtle_hello` every second.
 
-    - How can you create a publisher in a python file? What arguments do you need to initialize one?
-    - What `msg` type should be used to publish a string? How can you check the proper structure of a `msg`? How can you import ROS2 messages into a python script to use them in code?
-    - How can you do tasks at a specific rate in ROS2?
-    - How can you check this message is properly being published from the CLI?
-    - What might you need to change in `package.xml` when you modify a package?
+    - (2 point) How can you create a publisher in a python file? What arguments do you need to initialize one?
+    - (2 point) What `msg` type should be used to publish a string? How can you check the proper structure of a `msg`? How can you import ROS2 messages into a python script to use them in code?
+    - (2 point) How can you do tasks at a specific rate in ROS2?
+    - (2 point) How can you check this message is properly being published from the CLI?
+    - (1 point) What might you need to change in `package.xml` when you modify a package?
 
 5. To finish this section, try and set up the two nodes such that they both send messages to each other. Your first step will be to make a subscriber in `move_controller` that can receive the hello message sent by `computation_controller`. Then, try and modify `move_controller` to send a message to `computation_controller` on a different topic. You'll also have to modify `computation_controller` here to make it capable of receiving the sent message.
 
-    - How can you create a subscriber in a python file? What arguments do you need to initialize one?
-    - What do you need to change in `setup.py` to be able to run the second node?
+    - (2 point) How can you create a subscriber in a python file? What arguments do you need to initialize one?
+    - (1 point) What do you need to change in `setup.py` to be able to run the second node?
 
 You should now have a ROS2 package with two nodes that can send messages to each other. This is an example of a basic ROS system, but of course so much more complicated tasks can be done as well. To practice you can try and add some more of these harder tasks into this system. Some things that could be worth trying are:
 
@@ -98,7 +101,7 @@ You should now have a ROS2 package with two nodes that can send messages to each
 
 It's definitely worth trying all this and more now, because these are all concepts you could use in your full project!
 
-## Part 2 - Action Client/Server
+## Part 2 - Action Client/Server (30 points)
 
 For the final section of the homework, you'll need to to a bit more reading first to understand *actions*. You should read through the [intermediate tutorials](https://docs.ros.org/en/humble/Tutorials/Intermediate.html) up to and including at least 'Writing an action server and client', but reading the rest of the intermediate tutorials is highly recommended, particularly the sections on [launch files](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Launch-Main.html) and [frames using tf2](https://docs.ros.org/en/humble/Tutorials/Intermediate/Tf2/Tf2-Main.html).
 
@@ -126,9 +129,11 @@ To implement this, there are a few steps we recommend:
 
 Once you have implemented the system you can test it in simulation using gazebo. I recommend using an empty world (add `world:=empty` to the simulation launch command) initially to make the simulation faster. Remember that you'll have to undock first before performing the sequence of actions (which you can also do programmatically using an action!).
 
-## Part 3 - Custom Simulation Worlds
+To submit your answer to this stage of the homework, please upload a zipped copy of your package at this stage with working `move_controller` and `computation_controller` nodes.
 
-(This section has a lot of explanation to help you understand whats going on. Its all pretty important, so do make sure to read it all, but to make things easier all the points which will require you to actually do something on the computer start with **!!!**)
+## Part 3 - Custom Simulation Worlds (30 points)
+
+(This section has a lot of explanation to help you understand whats going on. Its all pretty important, so do make sure to read it all, but to make things easier all the parts which will require you to actually do something on the computer start with **!!!**)
 
 Now that we can move our robot with code, the next step is to set up our simulation world to be a bit more realistic. While gazebo provides some default worlds, it would be much better to test in a simulated world that is very similar to the real-world scenario the robot would run in. So, in this section we're going to look into how we can implement a custom world that we built.
 
@@ -223,7 +228,7 @@ A skeleton example of this is in `launch_resources/example_setup.py`
 ros2 launch <your_package> turtlebot4_ignition.launch.py model:=lite
 ```
 
-**!!!** Next, use these two launch files as examples to make your own launch file that can launch the two controller nodes you've wrote together.
+**!!!** (5 points) Next, use these two launch files as examples to make your own launch file that can launch the two controller nodes you've wrote together.
 
 Note: if you change a launch file, a model or a world file, you will **always** have to rebuild your ROS2 environment for the changes to take hold. This is because these all require files to be written as they are `data_files` assets and so aren't properly tracked by `colcon build --symlink-install` like python scripts are.
 
@@ -279,6 +284,14 @@ ros2 launch <your_package> turtlebot4_ignition.launch.py model:=lite world:=cust
 <div align="middle">
   <img src="assets/sim_robot_custom_world.png" alt="Empty room file open in blender"  width="75%" />
 </div>
+
+(5 points) Upload a screenshot of the simulator running with the custom world.
+
+### Final submission
+
+(20 points) Using what you have made and learned so far, make your robot drive in the shape of an equilateral triangle path with side lengths of 0.5 meters in gazebo. If the path isn't perfect due to noise, that's ok and won't be marked down, but the shape should be roughly correct, and the code should theoretically produce the correct shape when ran.
+
+Submit the ROS package you developed zipped into a single file, along with a screen recording of the robot driving along the triangle path. While the robot is driving you shouldn't be inputting any commands i.e. the robot should be moving fully autonomously.
 
 ## Conclusion
 
