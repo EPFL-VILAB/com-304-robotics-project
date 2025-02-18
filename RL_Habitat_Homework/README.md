@@ -124,6 +124,7 @@ for a high-priority queue for the course.
     pip install -e habitat-lab/
     pip install -e habitat-baselines/
     ```
+   Note: If you face issues with pip, please ensure your conda related directories have the highest priority in the PATH, ie it appears the earliest. 
 6. Start the jupyter notebook server.
    ```bash
    cd /workspace/RL_Habitat_Homework/
@@ -150,10 +151,12 @@ for a high-priority queue for the course.
 ## Start coding!
 Congratulations! You have successfully started the jupyter notebook server on the compute node. Now you can start coding in the jupyter notebook.
 
-## **Usefull commands for tmux and jupyter**
+## **Useful commands for tmux and jupyter**
 
 - exit the tmux session `ctrl+b` and then type `:detach`
 - scroll inside the tmux session `ctrl+b` and then `[`
 - enter in the tmux session `tmux attach -t <name>`
 - kill the tmux session `tmux kill-session -t <name>`
 - kill a process (after finishing with jupyter): `lsof -i :8888` and take the id and do `kill <id>`
+
+
