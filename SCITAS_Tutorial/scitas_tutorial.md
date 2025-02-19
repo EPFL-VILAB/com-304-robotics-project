@@ -29,7 +29,7 @@ When you see ***remotely*** or ***on the clusters***, it means the command shoul
 We use `<username>` to denote your username on the clusters. Please replace it with your actual username when you execute the commands.
 
 # How to create an account
-If you haven’t created an account on SCITAS, you can get one free of charge [[link](https://scitas-doc.epfl.ch/accounts/getting-account/)]. Your account will be associated with the COM-304 project to use reserved GPUs or acquire high priority in job queues.
+You should be able to directly log into SCITAS with your GASPAR credentials when the COM-304 GPU allocation is confirmed. Your account will be associated with the COM-304 project to use reserved GPUs or acquire high priority in job queues.
 
 # How to access to the cluster
 To connect to the clusters, you have to be inside the EPFL network or [establish a VPN connection](https://www.epfl.ch/campus/services/en/it-services/network-services/remote-intranet-access/vpn-clients-available/) [[link](https://scitas-doc.epfl.ch/user-guide/using-clusters/connecting-to-the-clusters/)].
