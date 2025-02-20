@@ -78,7 +78,7 @@ You can submit a job by following the procedures below on the clusters.
    Let’s digest the commands a bit
    1. All the commands starting with `#SBATCH` specify the resources required for the job
       1. `#SBATCH --chdir /home/<username>` sets the working directory to be `/home/<username>`. All the commands are executed under this directory.
-      2. `#SBATCH --gres=gpu:1` sets the number of GPUs required for the job to be `1`. Depending on the homework and the project track, you may from 1 up to 8 GPUs. 
+      2. `#SBATCH --gres=gpu:1` sets the number of GPUs required for the job to be `1`. Depending on the homework and the project track, you may need from 1 up to 8 GPUs. 
       3. `#SBATCH --ntasks 1` sets the number of parallel tasks to be `1`. In this course, you normally will only need 1 parallel task per job.
       4. `#SBATCH --cpus-per-task 1` sets the number of CPUs per task to be `1`. You can increase this number if your job is CPU-intensive.
       5. `#SBATCH --mem 4096` sets the amount of memory for the job to be 4096MB.
