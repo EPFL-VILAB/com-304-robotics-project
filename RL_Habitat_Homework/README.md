@@ -12,14 +12,14 @@ The `<user>` mentioned in the following sections is your username on the `Izar` 
 
 ## Prepare the pre-built `Apptainer` image
 
-1. Download the zipped pre-built `Apptainer` image (`com304-habitat.sif.tar.gz`)[[Google Drive](https://drive.google.com/file/d/1-3-2-HwqQrYHF2EdqSEc-TaUW5UaG82C/view?usp=sharing)] [[Dropbox](https://tinyurl.com/com304-habitat)] onto your local machine.  
+1. Download the zipped pre-built `Apptainer` image (`com304-habitat.sif.tar.gz`)[[Google Drive](https://drive.google.com/file/d/1-3-2-HwqQrYHF2EdqSEc-TaUW5UaG82C/view?usp=sharing)] onto your local machine.  
 2. Upload the zipped image onto the cluster by using the command below. It will take some time depending on your network speed.
    ```bash
    scp /path/to/com304-habitat.sif.tar.gz <user>@izar:/home/<user>/myimages/
    ```
 3. (Optional to step 1-2) You can also directly download it on izar `<user>@izar:/home/<user>/myimages/` using:
    ```bash
-   wget https://tinyurl.com/com304-habitat -O com304-habitat.sif.tar.gz
+   wget https://datasets.epfl.ch/vilab/com304-habitat.sif.tar.gz -O com304-habitat.sif.tar.gz
    ```
  
 4. Login the izar cluster and unzip the image by the command below.
