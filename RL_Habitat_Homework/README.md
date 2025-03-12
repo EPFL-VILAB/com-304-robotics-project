@@ -83,11 +83,6 @@ The `<user>` mentioned in the following sections is your username on the `Izar` 
 **REMARK**: If your job is pending for a long time, please consider using
 ```bash
 #SBATCH --account=com-304
-#SBATCH --reservation=Course-com-304
-```
-for our reserved GPUS and
-```bash
-#SBATCH --account=com-304
 #SBATCH --qos=com-304
 ```
 for a high-priority queue for the course.
