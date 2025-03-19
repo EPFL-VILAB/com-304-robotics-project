@@ -26,7 +26,7 @@ Note that Go2 and MyAGV platforms are unsupported, i.e., we provide detailed ins
 ## Homeworks
 There will be two homeworks that will help and prepare you for the project:
 
-- [HW1: ROS2 & Turtlebot](ROS_Homework_Ungraded/ROS2_homework_task.md). **Worth 10% of your overall grade.** Introduction to ROS2 and the Turtlebot4 platform. This helps with the **hardware** aspect.
+- [HW1: ROS2 & Turtlebot](ROS_Homework/ROS2_homework_task.md). **Worth 10% of your overall grade.** Introduction to ROS2 and the Turtlebot4 platform. This helps with the **hardware** aspect.
 - [HW2: RL & Habitat](RL_Habitat_Homework/RL_Habitat_Homework.ipynb). **Worth 15% of your overall grade.** Introduction to Habitat and Reinforcement Learning. This helps with the **machine learning, control**, and **perception** aspects.
 
 ## Studying Material & Resources

@@ -1,47 +1,52 @@
 # RL Homework
 
-We are going to use `Habitat` as the simulation engine for our reinforcement learning (RL) homework.
-Habitat is a simulation platform for research in Embodied AI, which only works on Linux and MacOS systems. 
+We will use `Habitat` as the simulation engine for our reinforcement learning (RL) homework.
+[Habitat](https://aihabitat.org/) is a simulation platform for research in Embodied AI, which only works on Linux and MacOS systems. 
 To simplify the installation procedure, we provide you with a pre-built `Apptainer` image with `Habitat` installed.
 You will run the `Apptainer` image to run the jupyter notebook on the `Izar` cluster of `SCITAS`.
 
-**NOTE**: If you don't want to use the pre-built image, you can freely choose to install `Habitat` on you own machine or in `Colab`. But we are not going to support those platforms.
+**NOTE**: If you do not wish to use the pre-built image, you are welcome to install `Habitat` on you own machine or in `Colab`. Note that we do not support installations on your own machine or colab.
 
 ## Terminology
 The `<user>` mentioned in the following sections is your username on the `Izar` cluster. Please replace it when you execute the commands.
 
 ## Prepare the pre-built `Apptainer` image
 
-1. Download the zipped pre-built `Apptainer` image (`com304-habitat.sif.tar.gz`)[[Google Drive](https://drive.google.com/file/d/1VB_u-gGdy5VKwpvxb9ZW3xQznqoTN6EE/view?usp=sharing)] onto your local machine. 
+1. Download the zipped pre-built `Apptainer` image (`com304-habitat.sif.tar.gz`)[[Google Drive](https://drive.google.com/file/d/1-3-2-HwqQrYHF2EdqSEc-TaUW5UaG82C/view?usp=sharing)] onto your local machine.  
 2. Upload the zipped image onto the cluster by using the command below. It will take some time depending on your network speed.
    ```bash
    scp /path/to/com304-habitat.sif.tar.gz <user>@izar:/home/<user>/myimages/
    ```
-3. Login the izar cluster and unzip the image by the command below.
+3. (Optional to step 1-2) You can also directly download it on izar `<user>@izar:/home/<user>/myimages/` using:
+   ```bash
+   wget https://datasets.epfl.ch/vilab/com304-habitat.sif.tar.gz -O com304-habitat.sif.tar.gz
+   ```
+ 
+4. Login the izar cluster and unzip the image by the command below.
    ```bash
    cd /home/<user>/myimages/
    tar -xvf com304-habitat.sif.tar.gz 
    ```
-   With that you’ll have a `com304-habitat.sif` folder which represent the image.
+   With that you’ll have a `com304-habitat.sif` apptainer image file.
 
 ## Prepare the workspace folder
-1. Create a folder called `COM-304_ws` in `/home/<user>/` on the clusters.
+1. Create a directory called `COM-304_ws` in `/home/<user>/` on the clusters.
    ```bash
     mkdir /home/<user>/COM-304_ws
     ```
 2. Pull the `comm-proj-habitat-lab` repository into the `COM-304_ws` folder.
    ```bash
    cd /home/<user>/COM-304_ws
-   git clone git@github.com:JayeFu/comm-proj-habitat-lab.git
+   git clone https://github.com/EPFL-VILAB/comm-proj-habitat-lab.git
    ```
 3. Pull the `com-304-robotics-project` repository into the `COM-304_ws` folder.
    ```bash
    cd /home/<user>/COM-304_ws
-   git clone git@github.com:EPFL-VILAB/com-304-robotics-project.git
+   git clone https://github.com/EPFL-VILAB/com-304-robotics-project.git
    ```
 
 ## Download necessary assets
-1. Download the assets `data.zip` onto your local machine [[Google Drive](https://drive.google.com/file/d/1VAy60Xlw_4-6wF6yijnJlwXUE2zrGrfK/view?usp=sharing)].
+1. Download the assets `data.zip` onto your local machine [[Google Drive](https://drive.google.com/file/d/1RrS8XdDXE4qzeKm5JglrCZzgLWf3quuj/view?usp=sharing)].
 2. Upload the zipped assets onto the cluster by using the command below. It will take some time depending on your network speed.
    ```bash
    scp /path/to/data.zip <user>@izar:/home/<user>/COM-304_ws/com-304-robotics-project/RL_Habitat_Homework/
@@ -54,7 +59,7 @@ The `<user>` mentioned in the following sections is your username on the `Izar` 
 
 ## Submit a job to acquire a compute node
 
-1. Create a file called `submit_sleep.run` in `/home/<user>/myimages/` on the clusters. The content of the file is as follows.
+1. Create a file called `submit_sleep.run` in `/home/<user>/myimages/` on the cluster. The content of the file is as follows.
    ```bash
    #!/bin/bash
 
@@ -73,19 +78,14 @@ The `<user>` mentioned in the following sections is your username on the `Izar` 
    cd /home/<user>/myimages/
    sbatch submit_sleep.run
    ```
-3. Now you can use `squeue -u <user>` to check your job status. Once the job is running, please note down the `JOBID` of the job for the next step.
+3.  You can use `squeue -u <user>` to check the status of your job. Once the job is running, please note down the `JOBID` of the job for the next step.
 
 **REMARK**: If your job is pending for a long time, please consider using
 ```bash
 #SBATCH --account=com-304
-#SBATCH --reservation=Course-com-304
-```
-for our reserved GPUS and
-```bash
-#SBATCH --account=com-304
 #SBATCH --qos=com-304
 ```
-for our high-priority queue.
+for a high-priority queue for the course.
 
 ## Start the jupyter notebook server in the compute node
 
@@ -119,6 +119,7 @@ for our high-priority queue.
     pip install -e habitat-lab/
     pip install -e habitat-baselines/
     ```
+   Note: If you face issues with pip, please ensure your conda related directories have the highest priority in the PATH, ie it appears the earliest. 
 6. Start the jupyter notebook server.
    ```bash
    cd /workspace/RL_Habitat_Homework/
@@ -145,10 +146,12 @@ for our high-priority queue.
 ## Start coding!
 Congratulations! You have successfully started the jupyter notebook server on the compute node. Now you can start coding in the jupyter notebook.
 
-## **Usefull commands for tmux and jupyter**
+## **Useful commands for tmux and jupyter**
 
 - exit the tmux session `ctrl+b` and then type `:detach`
 - scroll inside the tmux session `ctrl+b` and then `[`
 - enter in the tmux session `tmux attach -t <name>`
 - kill the tmux session `tmux kill-session -t <name>`
 - kill a process (after finishing with jupyter): `lsof -i :8888` and take the id and do `kill <id>`
+
+
