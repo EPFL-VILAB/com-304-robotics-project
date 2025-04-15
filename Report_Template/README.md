@@ -8,6 +8,8 @@ For detailed instructions on what should be included in the project proposal see
 
 ### Progress Report
 
+For detailed instructions on what should be included in the progress update see the [project guidelines](https://www.overleaf.com/read/qrfkgnbmmsdj#53611f). The progress update should be written with the latex template in the `latex-progress-update-template` folder. Note that as stated in the project guidelines the progress update should be **at most two pages long**.
+
 ### Final Report
 
 ## LaTeX Report Writing
