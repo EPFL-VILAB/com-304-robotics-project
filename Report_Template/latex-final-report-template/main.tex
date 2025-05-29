@@ -1,0 +1,72 @@
+\documentclass[10pt,conference,compsocconf]{IEEEtran}
+
+\usepackage{hyperref}
+\usepackage{graphicx}	% For figure environment
+
+
+\begin{document}
+\title{Project Title}
+
+\author{
+  Name1 (SCIPER1), Name2 (SCIPER2), Name3 (SCIPER3)\\
+  \textit{COM-304 Final Project Report}
+}
+
+\maketitle
+
+% ---------- Abstract ----------
+\begin{abstract}
+    Provide a brief description of your problem, approach, and key results.
+\end{abstract}
+
+
+% ---------- Introduction ---------- 
+\section{Introduction}
+
+Describe what the problem you are solving is, its significance~(i.e. why are you solving it?), and how you solve it. You can organize this section similar to the introduction of your proposal report while being more concrete and specific.
+
+Having a pull figure highlighting the most prominent aspects and results of your project could be very useful.
+
+% ---------- Related Work ----------
+\section{Related Work}
+Discuss how this problem is solved currently, if any. Mention the relevant works~\cite{example} and pose your approach against them. Please make your differences and similarities to those works as clear as possible.
+
+% ---------- Method and Deliveries ----------
+\section{Method}
+
+Explain your approach for solving the problem. Justify the design choices you made and mention other alternatives, if any. Make sure to include figures, diagrams, pseudo-code etc. to strengthen your case. It is important that your method is explained in an understandable way for a fair evaluation.
+
+% \subsection{How do you solve the problem?}
+\begin{figure}[tbph]
+  \centering
+  \includegraphics[width=0.8\columnwidth]{example-image-a}
+  \caption{(optional) Illustration of the problem/your solution}
+  \vspace{-3mm}
+  \label{fig:placeholder1}
+\end{figure}
+
+
+\section{Experiments}
+
+Discuss your experimental setup in detail. Explain your baselines and justify why you picked them. Support your results with quantitative and qualitative evaluations comparing your method to these baselines~(e.g. include tables for performance metrics and qualitative figures.). If relevant, perform ablation studies to provide further insight into the inner workings of your method. If you have negative results (e.g. your method is not working as expected), make sure you include additional experiments to probe possible reasons.
+
+
+% ---------- Discussion ----------
+\section{Conclusion and Limitations}
+
+Provide a brief summary of and takeaways from your project. Mention the limitations of your method and how they could be solved. Also mention possible future extensions or other use cases.
+
+\section{Individual contributions}
+
+If it is a group project, include an author contribution section explaining the role of each group member throughout the project. 
+
+
+\bibliographystyle{IEEEtran}
+\bibliography{literature}
+
+\clearpage
+\section{Appendix}
+
+Your main report should be \textbf{4 pages maximum}. You can add your supplementary evaluations (e.g. additional qualitative results, non-important long experiments, etc) and method details to the appendix section here which does not have a page limit. \textit{Make sure that the main material is provided in the main report.} 
+
+\end{document}
